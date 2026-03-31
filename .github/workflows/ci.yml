@@ -1,0 +1,46 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    - name: Build Backend
+      run: |
+        cd core/backend
+        go build -v ./cmd/api/main.go
+    - name: Run Backend Tests
+      run: |
+        cd core/backend
+        go test -v ./...
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Install Frontend Dependencies
+      run: |
+        cd core/frontend
+        npm install
+    - name: Lint Frontend
+      run: |
+        cd core/frontend
+        npm run lint
+    - name: Build Frontend
+      run: |
+        cd core/frontend
+        npm run build

@@ -1,0 +1,40 @@
+# Docker Compose for Project Re
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: re-db
+    environment:
+      - POSTGRES_USER=${DB_USER:-re_user}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-re_password}
+      - POSTGRES_DB=${DB_NAME:-re_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./core/backend
+      dockerfile: Dockerfile
+    container_name: re-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=postgres://${DB_USER:-re_user}:${DB_PASSWORD:-re_password}@db:5432/${DB_NAME:-re_db}?sslmode=disable
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./core/frontend
+      dockerfile: Dockerfile
+    container_name: re-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8080
+
+volumes:
+  postgres_data:
