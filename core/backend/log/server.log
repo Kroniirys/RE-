@@ -1,0 +1,2 @@
+2026-03-31T16:11:11.270+0700	INFO	cmd/serve.go:66	Server starting on :8080 in debug mode
+2026-03-31T16:54:22.499+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: [::1]:5432 (localhost): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}

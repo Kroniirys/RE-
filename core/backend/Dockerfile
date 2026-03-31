@@ -1,26 +1,38 @@
-# Use official Golang image as a build stage
-FROM golang:1.21-alpine AS builder
+# Build stage
+FROM golang:1.25-alpine AS builder
 
 WORKDIR /app
 
-# Copy go.mod and go.sum (if it exists)
-COPY go.mod ./
-# RUN go mod download
+# Install build dependencies
+RUN apk add --no-cache gcc musl-dev
 
-# Copy the rest of the code
+# Copy go.mod and go.sum
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source code and config templates
 COPY . .
 
 # Build the application
-RUN go build -o main ./cmd/api/main.go
+RUN go build -o main .
 
-# Final stage: minimal image
+# Final stage
 FROM alpine:latest
 
 WORKDIR /root/
 
+# Install runtime dependencies (like ca-certificates for networking)
+RUN apk add --no-cache ca-certificates
+
 # Copy the binary from the builder stage
 COPY --from=builder /app/main .
 
+# Copy necessary directories for runtime
+COPY --from=builder /app/config ./config
+COPY --from=builder /app/pkg/db/migrations ./pkg/db/migrations
+
+# Expose the API port
 EXPOSE 8080
 
-CMD ["./main"]
+# Run the server
+CMD ["./main", "serve"]

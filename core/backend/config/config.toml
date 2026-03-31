@@ -1,0 +1,31 @@
+# Project Re - Backend Configuration
+
+[server]
+port = 8080
+mode = "debug" # debug, release
+
+[database]
+url = "postgres://re_user:re_password@localhost:5432/re_db?sslmode=disable"
+max_open_conns = 25
+max_idle_conns = 25
+conn_max_lifetime = "5m"
+
+[auth]
+jwt_secret = "your_super_secret_key_change_it_in_production"
+access_token_expiry = "1h"
+refresh_token_expiry = "168h" # 7 days
+bcrypt_cost = 10
+
+[logger]
+server_level = "debug"
+server_log_enabled = 1
+api_level = "info"
+api_log_enabled = 1
+backup_level = "debug"
+backup_log_enabled = 1
+db_level = "debug"
+db_log_enabled = 1
+max_size = 100 # MB
+max_backups = 3
+max_age = 28 # days
+compress = true

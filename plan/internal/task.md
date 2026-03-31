@@ -4,7 +4,7 @@
 
 ---
 
-## 🏗️ 1. Khởi tạo & Hạ tầng (General Setup - Chi tiết tại [general.md](file:///c:/Users/dat.nguyen2/me/RE-/RE-/plan/internal/general.md))
+## 🏗️ 1. Khởi tạo & Hạ tầng (General Setup)
 - [x] Thiết lập cấu trúc thư mục và môi trường phát triển
 - [x] Thiết lập CI/CD (GitHub Actions / GitLab CI)
 - [x] Cấu hình Boilerplate (Frontend & Backend)
@@ -12,7 +12,7 @@
 
 ---
 
-## 🎨 2. Phát triển Frontend (Chi tiết tại [frontend/](file:///c:/Users/dat.nguyen2/me/Re/plan/frontend/task.md))
+## 🎨 2. Phát triển Frontend
 - [ ] Thiết kế UI/UX & Prototyping
 - [ ] Xây dựng hệ thống Component core
 - [ ] Tích hợp API và Quản lý State
@@ -20,7 +20,7 @@
 
 ---
 
-## ⚙️ 3. Phát triển Backend (Chi tiết tại [backend/](file:///c:/Users/dat.nguyen2/me/Re/plan/backend/task.md))
+## ⚙️ 3. Phát triển Backend
 - [ ] Thiết kế Database (ERD) và Schema
 - [ ] Xây dựng Core API Services
 - [ ] Hệ thống Xác thực & Phân quyền (Auth)
