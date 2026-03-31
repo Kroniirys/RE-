@@ -1,0 +1,26 @@
+# Binaries
+*.exe
+re-backend
+re-backend.exe
+
+# Local Configuration
+core/backend/config/config.toml
+core/backend/config/config_local.toml
+.env
+*.env
+
+# Logs
+core/backend/log/
+*.log
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
