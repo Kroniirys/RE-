@@ -2,10 +2,11 @@
 
 [server]
 port = 8080
+grpc_port = 50051
 mode = "debug" # debug, release
 
 [database]
-url = "postgres://re_user:re_password@localhost:5432/re_db?sslmode=disable"
+url = "postgres://re_user:re_password@127.0.0.1:5433/re_db?sslmode=disable"
 max_open_conns = 25
 max_idle_conns = 25
 conn_max_lifetime = "5m"
@@ -29,3 +30,7 @@ max_size = 100 # MB
 max_backups = 3
 max_age = 28 # days
 compress = true
+
+[scraper]
+enabled = true
+interval_second = 5

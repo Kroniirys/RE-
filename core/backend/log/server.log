@@ -1,2 +1,84 @@
 2026-03-31T16:11:11.270+0700	INFO	cmd/serve.go:66	Server starting on :8080 in debug mode
 2026-03-31T16:54:22.499+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: [::1]:5432 (localhost): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:04:29.102+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: [::1]:5432 (localhost): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:05:34.312+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: [::1]:5432 (localhost): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:16:13.858+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: pq: password authentication failed for user \"re_user\""}
+2026-04-01T16:18:40.231+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: pq: password authentication failed for user \"re_user\""}
+2026-04-01T16:20:30.470+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: pq: password authentication failed for user \"re_user\""}
+2026-04-01T16:21:00.455+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: 127.0.0.1:5432 (127.0.0.1): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:25:51.634+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: pq: password authentication failed for user \"re_user\""}
+2026-04-01T16:37:59.838+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: 127.0.0.1:5432 (127.0.0.1): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:40:51.865+0700	FATAL	cmd/serve.go:27	Failed to initialize database pool	{"error": "unable to ping database: failed to connect to `user=re_user database=re_db`: 127.0.0.1:5432 (127.0.0.1): failed SASL auth: FATAL: password authentication failed for user \"re_user\" (SQLSTATE 28P01)"}
+2026-04-01T16:42:17.445+0700	INFO	cmd/migrate.go:59	Running migrations up...
+2026-04-01T16:42:17.784+0700	INFO	cmd/migrate.go:74	Migrations applied successfully
+2026-04-01T16:42:25.960+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-01T16:42:25.962+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-01T16:42:25.962+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-01T16:42:25.963+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-01T16:42:25.963+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-01T16:42:25.975+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-01T16:42:25.976+0700	INFO	handler/grpc_agent.go:42	StreamMetrics connection established
+2026-04-01T16:42:32.031+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036550}
+2026-04-01T16:42:37.794+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036555}
+2026-04-01T16:42:42.123+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036560}
+2026-04-01T16:42:47.734+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036565}
+2026-04-01T16:42:52.011+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036570}
+2026-04-01T16:42:57.746+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036575}
+2026-04-01T16:43:02.014+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036580}
+2026-04-01T16:43:07.753+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036585}
+2026-04-01T16:43:12.013+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036590}
+2026-04-01T16:43:17.759+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036595}
+2026-04-01T16:43:22.025+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036600}
+2026-04-01T16:43:27.785+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036605}
+2026-04-01T16:43:32.021+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036610}
+2026-04-01T16:43:37.775+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036615}
+2026-04-01T16:43:41.999+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036620}
+2026-04-01T16:43:47.843+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036625}
+2026-04-01T16:43:52.006+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036630}
+2026-04-01T16:43:57.802+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036635}
+2026-04-01T16:44:02.004+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036640}
+2026-04-01T16:44:07.809+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036645}
+2026-04-01T16:44:12.017+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036650}
+2026-04-01T16:44:17.812+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036655}
+2026-04-01T16:44:22.000+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036660}
+2026-04-01T16:44:27.844+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036665}
+2026-04-01T16:44:32.027+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036670}
+2026-04-01T16:44:37.822+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036675}
+2026-04-01T16:44:42.005+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036680}
+2026-04-01T16:44:47.855+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036685}
+2026-04-01T16:44:52.015+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036690}
+2026-04-01T16:44:57.828+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036695}
+2026-04-01T16:45:02.049+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036700}
+2026-04-01T16:45:07.848+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036705}
+2026-04-01T16:45:12.016+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036710}
+2026-04-01T16:45:17.888+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036715}
+2026-04-01T16:45:22.006+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036720}
+2026-04-01T16:45:27.850+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036725}
+2026-04-01T16:45:32.021+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036730}
+2026-04-01T16:45:37.884+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036735}
+2026-04-01T16:45:42.011+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036740}
+2026-04-01T16:45:47.862+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036745}
+2026-04-01T16:45:52.000+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036750}
+2026-04-01T16:45:57.875+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036755}
+2026-04-01T16:46:02.016+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036760}
+2026-04-01T16:46:07.895+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036765}
+2026-04-01T16:46:12.013+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036770}
+2026-04-01T16:46:17.895+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036775}
+2026-04-01T16:46:19.357+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-01T16:46:19.363+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-01T16:46:19.363+0700	FATAL	app/app.go:115	failed to listen for gRPC	{"error": "listen tcp :50051: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted."}
+2026-04-01T16:46:22.010+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036780}
+2026-04-01T16:46:27.892+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036785}
+2026-04-01T16:46:32.002+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036790}
+2026-04-01T16:46:37.955+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036795}
+2026-04-01T16:46:42.006+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036800}
+2026-04-01T16:46:47.914+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036805}
+2026-04-01T16:46:52.004+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036810}
+2026-04-01T16:46:57.917+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036815}
+2026-04-01T16:47:01.997+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036820}
+2026-04-01T16:47:07.944+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036825}
+2026-04-01T16:47:12.018+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036830}
+2026-04-01T16:47:17.955+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036835}
+2026-04-01T16:47:22.003+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036840}
+2026-04-01T16:47:27.934+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036845}
+2026-04-01T16:47:31.997+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036850}

@@ -3,11 +3,16 @@ package app
 import (
 	"context"
 	"fmt"
+	"net"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"google.golang.org/grpc"
+	agentv1 "re-backend/scraper/proto/v1"
+	scraperclient "re-backend/scraper/client"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -104,6 +109,45 @@ func (a *App) Run() error {
 
 	// Wait for interrupt signal to gracefully shutdown the server with
 	// a timeout of 5 seconds.
+	grpcAddr := fmt.Sprintf(":%d", a.Config.Server.GrpcPort)
+	grpcListener, err := net.Listen("tcp", grpcAddr)
+	if err != nil {
+		logger.Server.Fatal("failed to listen for gRPC", zap.Error(err))
+	}
+	
+	grpcServer := grpc.NewServer(
+		grpc.UnaryInterceptor(middleware.GrpcAuthInterceptor(a.TokenMaker)),
+		grpc.StreamInterceptor(middleware.GrpcAuthStreamInterceptor(a.TokenMaker)),
+	)
+	
+	agentHandler := handler.NewGrpcAgentHandler()
+	agentv1.RegisterAgentServiceServer(grpcServer, agentHandler)
+	
+	go func() {
+		logger.Server.Info(fmt.Sprintf("gRPC Server starting on %s mode", grpcAddr))
+		if err := grpcServer.Serve(grpcListener); err != nil {
+			logger.Server.Fatal(fmt.Sprintf("grpc serve: %s\n", err))
+		}
+	}()
+
+	var scraperCancel context.CancelFunc
+	if a.Config.Scraper.Enabled {
+		// Create a long lived token for the internal scraper
+		token, err := a.TokenMaker.CreateToken(0, "system_agent", "access")
+		if err != nil {
+			logger.Server.Error("failed to generate interior scraper token", zap.Error(err))
+		} else {
+			sc, err := scraperclient.NewScraperClient(a.Config, token)
+			if err != nil {
+				logger.Server.Error("failed to initialize internal scraper", zap.Error(err))
+			} else {
+				scraperCtx, cancel := context.WithCancel(context.Background())
+				scraperCancel = cancel
+				go sc.Start(scraperCtx)
+			}
+		}
+	}
+
 	quit := make(chan os.Signal, 1)
 	// kill (no param) default send syscall.SIGTERM
 	// kill -2 is syscall.SIGINT
@@ -119,6 +163,13 @@ func (a *App) Run() error {
 
 	if err := srv.Shutdown(ctx); err != nil {
 		logger.Server.Fatal("Server forced to shutdown:", zap.Error(err))
+	}
+	logger.Server.Info("Shutting down gRPC server...")
+	grpcServer.GracefulStop()
+
+	if scraperCancel != nil {
+		logger.Server.Info("Shutting down Internal Scraper...")
+		scraperCancel()
 	}
 
 	// Close DB pool

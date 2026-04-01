@@ -8,6 +8,377 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+type Asset struct {
+	ID        pgtype.UUID        `json:"id"`
+	Hostname  string             `json:"hostname"`
+	IpAddress string             `json:"ip_address"`
+	Port      pgtype.Int4        `json:"port"`
+	Status    pgtype.Text        `json:"status"`
+	CreatedAt pgtype.Timestamptz `json:"created_at"`
+	UpdatedAt pgtype.Timestamptz `json:"updated_at"`
+}
+
+type Container struct {
+	ID                pgtype.UUID        `json:"id"`
+	AssetID           pgtype.UUID        `json:"asset_id"`
+	DockerContainerID string             `json:"docker_container_id"`
+	Name              string             `json:"name"`
+	Image             pgtype.Text        `json:"image"`
+	State             pgtype.Text        `json:"state"`
+	CreatedAt         pgtype.Timestamptz `json:"created_at"`
+}
+
+type MetricsCpu10m struct {
+	TimeBucket       pgtype.Timestamptz `json:"time_bucket"`
+	AssetID          pgtype.UUID        `json:"asset_id"`
+	AvgUsagePercent  float32            `json:"avg_usage_percent"`
+	MinUsagePercent  float32            `json:"min_usage_percent"`
+	MaxUsagePercent  float32            `json:"max_usage_percent"`
+	WavgUsagePercent float32            `json:"wavg_usage_percent"`
+}
+
+type MetricsCpu1d struct {
+	TimeBucket       pgtype.Timestamptz `json:"time_bucket"`
+	AssetID          pgtype.UUID        `json:"asset_id"`
+	AvgUsagePercent  float32            `json:"avg_usage_percent"`
+	MinUsagePercent  float32            `json:"min_usage_percent"`
+	MaxUsagePercent  float32            `json:"max_usage_percent"`
+	WavgUsagePercent float32            `json:"wavg_usage_percent"`
+}
+
+type MetricsCpu1h struct {
+	TimeBucket       pgtype.Timestamptz `json:"time_bucket"`
+	AssetID          pgtype.UUID        `json:"asset_id"`
+	AvgUsagePercent  float32            `json:"avg_usage_percent"`
+	MinUsagePercent  float32            `json:"min_usage_percent"`
+	MaxUsagePercent  float32            `json:"max_usage_percent"`
+	WavgUsagePercent float32            `json:"wavg_usage_percent"`
+}
+
+type MetricsCpu1m struct {
+	TimeBucket       pgtype.Timestamptz `json:"time_bucket"`
+	AssetID          pgtype.UUID        `json:"asset_id"`
+	AvgUsagePercent  float32            `json:"avg_usage_percent"`
+	MinUsagePercent  float32            `json:"min_usage_percent"`
+	MaxUsagePercent  float32            `json:"max_usage_percent"`
+	WavgUsagePercent float32            `json:"wavg_usage_percent"`
+}
+
+type MetricsCpu5m struct {
+	TimeBucket       pgtype.Timestamptz `json:"time_bucket"`
+	AssetID          pgtype.UUID        `json:"asset_id"`
+	AvgUsagePercent  float32            `json:"avg_usage_percent"`
+	MinUsagePercent  float32            `json:"min_usage_percent"`
+	MaxUsagePercent  float32            `json:"max_usage_percent"`
+	WavgUsagePercent float32            `json:"wavg_usage_percent"`
+}
+
+type MetricsCpuRaw struct {
+	Time         pgtype.Timestamptz `json:"time"`
+	AssetID      pgtype.UUID        `json:"asset_id"`
+	UsagePercent pgtype.Float4      `json:"usage_percent"`
+}
+
+type MetricsDisk10m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	Device         pgtype.Text        `json:"device"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsDisk1d struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	Device         pgtype.Text        `json:"device"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsDisk1h struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	Device         pgtype.Text        `json:"device"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsDisk1m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	Device         pgtype.Text        `json:"device"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsDisk5m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	Device         pgtype.Text        `json:"device"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsDiskRaw struct {
+	Time       pgtype.Timestamptz `json:"time"`
+	AssetID    pgtype.UUID        `json:"asset_id"`
+	Device     pgtype.Text        `json:"device"`
+	UsedBytes  pgtype.Int8        `json:"used_bytes"`
+	TotalBytes pgtype.Int8        `json:"total_bytes"`
+}
+
+type MetricsDocker10m struct {
+	TimeBucket          pgtype.Timestamptz `json:"time_bucket"`
+	ContainerID         pgtype.UUID        `json:"container_id"`
+	AvgCpuUsagePercent  float32            `json:"avg_cpu_usage_percent"`
+	MinCpuUsagePercent  float32            `json:"min_cpu_usage_percent"`
+	MaxCpuUsagePercent  float32            `json:"max_cpu_usage_percent"`
+	WavgCpuUsagePercent float32            `json:"wavg_cpu_usage_percent"`
+	AvgRamUsedBytes     int64              `json:"avg_ram_used_bytes"`
+	MinRamUsedBytes     int64              `json:"min_ram_used_bytes"`
+	MaxRamUsedBytes     int64              `json:"max_ram_used_bytes"`
+	WavgRamUsedBytes    int64              `json:"wavg_ram_used_bytes"`
+}
+
+type MetricsDocker1d struct {
+	TimeBucket          pgtype.Timestamptz `json:"time_bucket"`
+	ContainerID         pgtype.UUID        `json:"container_id"`
+	AvgCpuUsagePercent  float32            `json:"avg_cpu_usage_percent"`
+	MinCpuUsagePercent  float32            `json:"min_cpu_usage_percent"`
+	MaxCpuUsagePercent  float32            `json:"max_cpu_usage_percent"`
+	WavgCpuUsagePercent float32            `json:"wavg_cpu_usage_percent"`
+	AvgRamUsedBytes     int64              `json:"avg_ram_used_bytes"`
+	MinRamUsedBytes     int64              `json:"min_ram_used_bytes"`
+	MaxRamUsedBytes     int64              `json:"max_ram_used_bytes"`
+	WavgRamUsedBytes    int64              `json:"wavg_ram_used_bytes"`
+}
+
+type MetricsDocker1h struct {
+	TimeBucket          pgtype.Timestamptz `json:"time_bucket"`
+	ContainerID         pgtype.UUID        `json:"container_id"`
+	AvgCpuUsagePercent  float32            `json:"avg_cpu_usage_percent"`
+	MinCpuUsagePercent  float32            `json:"min_cpu_usage_percent"`
+	MaxCpuUsagePercent  float32            `json:"max_cpu_usage_percent"`
+	WavgCpuUsagePercent float32            `json:"wavg_cpu_usage_percent"`
+	AvgRamUsedBytes     int64              `json:"avg_ram_used_bytes"`
+	MinRamUsedBytes     int64              `json:"min_ram_used_bytes"`
+	MaxRamUsedBytes     int64              `json:"max_ram_used_bytes"`
+	WavgRamUsedBytes    int64              `json:"wavg_ram_used_bytes"`
+}
+
+type MetricsDocker1m struct {
+	TimeBucket          pgtype.Timestamptz `json:"time_bucket"`
+	ContainerID         pgtype.UUID        `json:"container_id"`
+	AvgCpuUsagePercent  float32            `json:"avg_cpu_usage_percent"`
+	MinCpuUsagePercent  float32            `json:"min_cpu_usage_percent"`
+	MaxCpuUsagePercent  float32            `json:"max_cpu_usage_percent"`
+	WavgCpuUsagePercent float32            `json:"wavg_cpu_usage_percent"`
+	AvgRamUsedBytes     int64              `json:"avg_ram_used_bytes"`
+	MinRamUsedBytes     int64              `json:"min_ram_used_bytes"`
+	MaxRamUsedBytes     int64              `json:"max_ram_used_bytes"`
+	WavgRamUsedBytes    int64              `json:"wavg_ram_used_bytes"`
+}
+
+type MetricsDocker5m struct {
+	TimeBucket          pgtype.Timestamptz `json:"time_bucket"`
+	ContainerID         pgtype.UUID        `json:"container_id"`
+	AvgCpuUsagePercent  float32            `json:"avg_cpu_usage_percent"`
+	MinCpuUsagePercent  float32            `json:"min_cpu_usage_percent"`
+	MaxCpuUsagePercent  float32            `json:"max_cpu_usage_percent"`
+	WavgCpuUsagePercent float32            `json:"wavg_cpu_usage_percent"`
+	AvgRamUsedBytes     int64              `json:"avg_ram_used_bytes"`
+	MinRamUsedBytes     int64              `json:"min_ram_used_bytes"`
+	MaxRamUsedBytes     int64              `json:"max_ram_used_bytes"`
+	WavgRamUsedBytes    int64              `json:"wavg_ram_used_bytes"`
+}
+
+type MetricsDockerRaw struct {
+	Time            pgtype.Timestamptz `json:"time"`
+	ContainerID     pgtype.UUID        `json:"container_id"`
+	CpuUsagePercent pgtype.Float4      `json:"cpu_usage_percent"`
+	RamUsedBytes    pgtype.Int8        `json:"ram_used_bytes"`
+}
+
+type MetricsNetwork10m struct {
+	TimeBucket  pgtype.Timestamptz `json:"time_bucket"`
+	AssetID     pgtype.UUID        `json:"asset_id"`
+	Interface   pgtype.Text        `json:"interface"`
+	AvgRxBytes  int64              `json:"avg_rx_bytes"`
+	MinRxBytes  int64              `json:"min_rx_bytes"`
+	MaxRxBytes  int64              `json:"max_rx_bytes"`
+	WavgRxBytes int64              `json:"wavg_rx_bytes"`
+	AvgTxBytes  int64              `json:"avg_tx_bytes"`
+	MinTxBytes  int64              `json:"min_tx_bytes"`
+	MaxTxBytes  int64              `json:"max_tx_bytes"`
+	WavgTxBytes int64              `json:"wavg_tx_bytes"`
+}
+
+type MetricsNetwork1d struct {
+	TimeBucket  pgtype.Timestamptz `json:"time_bucket"`
+	AssetID     pgtype.UUID        `json:"asset_id"`
+	Interface   pgtype.Text        `json:"interface"`
+	AvgRxBytes  int64              `json:"avg_rx_bytes"`
+	MinRxBytes  int64              `json:"min_rx_bytes"`
+	MaxRxBytes  int64              `json:"max_rx_bytes"`
+	WavgRxBytes int64              `json:"wavg_rx_bytes"`
+	AvgTxBytes  int64              `json:"avg_tx_bytes"`
+	MinTxBytes  int64              `json:"min_tx_bytes"`
+	MaxTxBytes  int64              `json:"max_tx_bytes"`
+	WavgTxBytes int64              `json:"wavg_tx_bytes"`
+}
+
+type MetricsNetwork1h struct {
+	TimeBucket  pgtype.Timestamptz `json:"time_bucket"`
+	AssetID     pgtype.UUID        `json:"asset_id"`
+	Interface   pgtype.Text        `json:"interface"`
+	AvgRxBytes  int64              `json:"avg_rx_bytes"`
+	MinRxBytes  int64              `json:"min_rx_bytes"`
+	MaxRxBytes  int64              `json:"max_rx_bytes"`
+	WavgRxBytes int64              `json:"wavg_rx_bytes"`
+	AvgTxBytes  int64              `json:"avg_tx_bytes"`
+	MinTxBytes  int64              `json:"min_tx_bytes"`
+	MaxTxBytes  int64              `json:"max_tx_bytes"`
+	WavgTxBytes int64              `json:"wavg_tx_bytes"`
+}
+
+type MetricsNetwork1m struct {
+	TimeBucket  pgtype.Timestamptz `json:"time_bucket"`
+	AssetID     pgtype.UUID        `json:"asset_id"`
+	Interface   pgtype.Text        `json:"interface"`
+	AvgRxBytes  int64              `json:"avg_rx_bytes"`
+	MinRxBytes  int64              `json:"min_rx_bytes"`
+	MaxRxBytes  int64              `json:"max_rx_bytes"`
+	WavgRxBytes int64              `json:"wavg_rx_bytes"`
+	AvgTxBytes  int64              `json:"avg_tx_bytes"`
+	MinTxBytes  int64              `json:"min_tx_bytes"`
+	MaxTxBytes  int64              `json:"max_tx_bytes"`
+	WavgTxBytes int64              `json:"wavg_tx_bytes"`
+}
+
+type MetricsNetwork5m struct {
+	TimeBucket  pgtype.Timestamptz `json:"time_bucket"`
+	AssetID     pgtype.UUID        `json:"asset_id"`
+	Interface   pgtype.Text        `json:"interface"`
+	AvgRxBytes  int64              `json:"avg_rx_bytes"`
+	MinRxBytes  int64              `json:"min_rx_bytes"`
+	MaxRxBytes  int64              `json:"max_rx_bytes"`
+	WavgRxBytes int64              `json:"wavg_rx_bytes"`
+	AvgTxBytes  int64              `json:"avg_tx_bytes"`
+	MinTxBytes  int64              `json:"min_tx_bytes"`
+	MaxTxBytes  int64              `json:"max_tx_bytes"`
+	WavgTxBytes int64              `json:"wavg_tx_bytes"`
+}
+
+type MetricsNetworkRaw struct {
+	Time      pgtype.Timestamptz `json:"time"`
+	AssetID   pgtype.UUID        `json:"asset_id"`
+	Interface pgtype.Text        `json:"interface"`
+	RxBytes   pgtype.Int8        `json:"rx_bytes"`
+	TxBytes   pgtype.Int8        `json:"tx_bytes"`
+}
+
+type MetricsRam10m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsRam1d struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsRam1h struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsRam1m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsRam5m struct {
+	TimeBucket     pgtype.Timestamptz `json:"time_bucket"`
+	AssetID        pgtype.UUID        `json:"asset_id"`
+	AvgUsedBytes   int64              `json:"avg_used_bytes"`
+	MinUsedBytes   int64              `json:"min_used_bytes"`
+	MaxUsedBytes   int64              `json:"max_used_bytes"`
+	WavgUsedBytes  int64              `json:"wavg_used_bytes"`
+	AvgTotalBytes  int64              `json:"avg_total_bytes"`
+	MinTotalBytes  int64              `json:"min_total_bytes"`
+	MaxTotalBytes  int64              `json:"max_total_bytes"`
+	WavgTotalBytes int64              `json:"wavg_total_bytes"`
+}
+
+type MetricsRamRaw struct {
+	Time       pgtype.Timestamptz `json:"time"`
+	AssetID    pgtype.UUID        `json:"asset_id"`
+	UsedBytes  pgtype.Int8        `json:"used_bytes"`
+	TotalBytes pgtype.Int8        `json:"total_bytes"`
+}
+
 type User struct {
 	ID           int64              `json:"id"`
 	Username     string             `json:"username"`

@@ -6,14 +6,86 @@ package db
 
 import (
 	"context"
+
+	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type Querier interface {
+	AggregateCpuRawTo10m(ctx context.Context, arg AggregateCpuRawTo10mParams) error
+	AggregateCpuRawTo1d(ctx context.Context, arg AggregateCpuRawTo1dParams) error
+	AggregateCpuRawTo1h(ctx context.Context, arg AggregateCpuRawTo1hParams) error
+	AggregateCpuRawTo1m(ctx context.Context, arg AggregateCpuRawTo1mParams) error
+	AggregateCpuRawTo5m(ctx context.Context, arg AggregateCpuRawTo5mParams) error
+	AggregateDiskRawTo10m(ctx context.Context, arg AggregateDiskRawTo10mParams) error
+	AggregateDiskRawTo1d(ctx context.Context, arg AggregateDiskRawTo1dParams) error
+	AggregateDiskRawTo1h(ctx context.Context, arg AggregateDiskRawTo1hParams) error
+	AggregateDiskRawTo1m(ctx context.Context, arg AggregateDiskRawTo1mParams) error
+	AggregateDiskRawTo5m(ctx context.Context, arg AggregateDiskRawTo5mParams) error
+	AggregateDockerRawTo10m(ctx context.Context, arg AggregateDockerRawTo10mParams) error
+	AggregateDockerRawTo1d(ctx context.Context, arg AggregateDockerRawTo1dParams) error
+	AggregateDockerRawTo1h(ctx context.Context, arg AggregateDockerRawTo1hParams) error
+	AggregateDockerRawTo1m(ctx context.Context, arg AggregateDockerRawTo1mParams) error
+	AggregateDockerRawTo5m(ctx context.Context, arg AggregateDockerRawTo5mParams) error
+	AggregateNetworkRawTo10m(ctx context.Context, arg AggregateNetworkRawTo10mParams) error
+	AggregateNetworkRawTo1d(ctx context.Context, arg AggregateNetworkRawTo1dParams) error
+	AggregateNetworkRawTo1h(ctx context.Context, arg AggregateNetworkRawTo1hParams) error
+	AggregateNetworkRawTo1m(ctx context.Context, arg AggregateNetworkRawTo1mParams) error
+	AggregateNetworkRawTo5m(ctx context.Context, arg AggregateNetworkRawTo5mParams) error
+	AggregateRamRawTo10m(ctx context.Context, arg AggregateRamRawTo10mParams) error
+	AggregateRamRawTo1d(ctx context.Context, arg AggregateRamRawTo1dParams) error
+	AggregateRamRawTo1h(ctx context.Context, arg AggregateRamRawTo1hParams) error
+	AggregateRamRawTo1m(ctx context.Context, arg AggregateRamRawTo1mParams) error
+	AggregateRamRawTo5m(ctx context.Context, arg AggregateRamRawTo5mParams) error
+	CreateAsset(ctx context.Context, arg CreateAssetParams) (Asset, error)
+	CreateContainer(ctx context.Context, arg CreateContainerParams) (Container, error)
 	CreateUser(ctx context.Context, arg CreateUserParams) (User, error)
+	DeleteAsset(ctx context.Context, id pgtype.UUID) error
+	DeleteContainer(ctx context.Context, id pgtype.UUID) error
+	DeleteOldCpu10m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldCpu1d(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldCpu1h(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldCpu1m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldCpu5m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldCpuRaw(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDisk10m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDisk1d(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDisk1h(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDisk1m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDisk5m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDiskRaw(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDocker10m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDocker1d(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDocker1h(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDocker1m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDocker5m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldDockerRaw(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetwork10m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetwork1d(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetwork1h(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetwork1m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetwork5m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldNetworkRaw(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRam10m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRam1d(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRam1h(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRam1m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRam5m(ctx context.Context, threshold pgtype.Timestamptz) error
+	DeleteOldRamRaw(ctx context.Context, threshold pgtype.Timestamptz) error
 	DeleteUser(ctx context.Context, id int64) error
+	GetAsset(ctx context.Context, id pgtype.UUID) (Asset, error)
+	GetContainerByDockerID(ctx context.Context, dockerContainerID string) (Container, error)
 	GetUser(ctx context.Context, id int64) (User, error)
 	GetUserByUsername(ctx context.Context, username string) (User, error)
+	InsertCpuRaw(ctx context.Context, arg []InsertCpuRawParams) (int64, error)
+	InsertDiskRaw(ctx context.Context, arg []InsertDiskRawParams) (int64, error)
+	InsertDockerRaw(ctx context.Context, arg []InsertDockerRawParams) (int64, error)
+	InsertNetworkRaw(ctx context.Context, arg []InsertNetworkRawParams) (int64, error)
+	InsertRamRaw(ctx context.Context, arg []InsertRamRawParams) (int64, error)
+	ListAssets(ctx context.Context) ([]Asset, error)
+	ListContainersByAsset(ctx context.Context, assetID pgtype.UUID) ([]Container, error)
 	ListUsers(ctx context.Context) ([]User, error)
+	UpdateAssetStatus(ctx context.Context, arg UpdateAssetStatusParams) error
+	UpdateContainerState(ctx context.Context, arg UpdateContainerStateParams) error
 	UpdateUserRole(ctx context.Context, arg UpdateUserRoleParams) error
 }
 

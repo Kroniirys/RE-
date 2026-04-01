@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package agent.v1;
+
+option go_package = "re-backend/scraper/proto/v1;agentv1";
+
+service AgentService {
+  // Agent registers with backend (Auth Token) to verify its identity and config
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+
+  // Agent sends periodic heartbeat to indicate it's still alive
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+
+  // Client-side streaming of metrics in batches
+  rpc StreamMetrics(stream MetricPayload) returns (StreamMetricsResponse);
+}
+
+message RegisterRequest {
+  string hostname = 1;
+  string ip_address = 2;
+  string os = 3;
+}
+
+message RegisterResponse {
+  string asset_id = 1;
+  string status = 2; // "success" or "error"
+}
+
+message HeartbeatRequest {
+  string asset_id = 1;
+  string status = 2;
+}
+
+message HeartbeatResponse {
+  bool acknowledged = 1;
+}
+
+message MetricPayload {
+  string asset_id = 1;
+  int64 timestamp = 2; // Unix timestamp
+  
+  repeated CpuMetric cpu = 3;
+  repeated RamMetric ram = 4;
+  repeated DiskMetric disk = 5;
+  repeated NetworkMetric network = 6;
+  repeated DockerMetric docker = 7;
+}
+
+message CpuMetric {
+  float usage_percent = 1;
+}
+
+message RamMetric {
+  int64 used_bytes = 1;
+  int64 total_bytes = 2;
+}
+
+message DiskMetric {
+  string device = 1;
+  int64 used_bytes = 2;
+  int64 total_bytes = 3;
+}
+
+message NetworkMetric {
+  string interface = 1;
+  int64 rx_bytes = 2;
+  int64 tx_bytes = 3;
+}
+
+message DockerMetric {
+  string docker_hash_id = 1; // 64-char container ID from Docker 
+  string name = 2; // To auto-create the container in DB if missing
+  string image = 3;
+  string state = 4;
+  float cpu_usage_percent = 5;
+  int64 ram_used_bytes = 6;
+}
+
+message StreamMetricsResponse {
+  bool success = 1;
+}

@@ -18,11 +18,18 @@ type Config struct {
 	Database DatabaseConfig `mapstructure:"database"`
 	Auth     AuthConfig     `mapstructure:"auth"`
 	Logger   LoggerConfig   `mapstructure:"logger"`
+	Scraper  ScraperConfig  `mapstructure:"scraper"`
+}
+
+type ScraperConfig struct {
+	Enabled        bool `mapstructure:"enabled"`
+	IntervalSecond int  `mapstructure:"interval_second"`
 }
 
 type ServerConfig struct {
-	Port int    `mapstructure:"port"`
-	Mode string `mapstructure:"mode"`
+	Port     int    `mapstructure:"port"`
+	GrpcPort int    `mapstructure:"grpc_port"`
+	Mode     string `mapstructure:"mode"`
 }
 
 type DatabaseConfig struct {
