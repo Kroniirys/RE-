@@ -15,15 +15,26 @@ var defaultConfigFile []byte
 
 type Config struct {
 	Server   ServerConfig   `mapstructure:"server"`
-	Database DatabaseConfig `mapstructure:"database"`
+	Database DatabaseConfig `mapstructure:"db"`
 	Auth     AuthConfig     `mapstructure:"auth"`
 	Logger   LoggerConfig   `mapstructure:"logger"`
 	Scraper  ScraperConfig  `mapstructure:"scraper"`
 }
 
 type ScraperConfig struct {
-	Enabled        bool `mapstructure:"enabled"`
-	IntervalSecond int  `mapstructure:"interval_second"`
+	Enabled        bool             `mapstructure:"enabled"`
+	IntervalSecond int              `mapstructure:"interval_second"`
+	RemoteDBs      []RemoteDBConfig `mapstructure:"remote_dbs"`
+}
+
+type RemoteDBConfig struct {
+	ID       string `mapstructure:"id"`
+	DBType   string `mapstructure:"db_type"` // postgres, mssql, oracle
+	Host     string `mapstructure:"host"`
+	Port     int    `mapstructure:"port"`
+	Database string `mapstructure:"database"`
+	User     string `mapstructure:"user"`
+	Pass     string `mapstructure:"pass"`
 }
 
 type ServerConfig struct {
@@ -33,10 +44,21 @@ type ServerConfig struct {
 }
 
 type DatabaseConfig struct {
-	URL             string        `mapstructure:"url"`
+	Host            string        `mapstructure:"host"`
+	Port            int           `mapstructure:"port"`
+	Database        string        `mapstructure:"database"`
+	DBType          int           `mapstructure:"dbtype"`
+	User            string        `mapstructure:"user"`
+	Pass            string        `mapstructure:"pass"`
 	MaxOpenConns    int           `mapstructure:"max_open_conns"`
 	MaxIdleConns    int           `mapstructure:"max_idle_conns"`
 	ConnMaxLifetime time.Duration `mapstructure:"conn_max_lifetime"`
+}
+
+func (d DatabaseConfig) GetURL() string {
+	// For now we assume DBType 1 is PostgreSQL
+	return fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable",
+		d.User, d.Pass, d.Host, d.Port, d.Database)
 }
 
 type AuthConfig struct {

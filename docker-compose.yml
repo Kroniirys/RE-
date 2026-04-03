@@ -6,9 +6,9 @@ services:
     image: postgres:15-alpine
     container_name: re-db
     environment:
-      - POSTGRES_USER=${DB_USER:-re_user}
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-re_password}
-      - POSTGRES_DB=${DB_NAME:-re_db}
+      - POSTGRES_USER=${DB_USER:-datnguyen}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-0865122003}
+      - POSTGRES_DB=${DB_NAME:-re}
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - "5433:5432"

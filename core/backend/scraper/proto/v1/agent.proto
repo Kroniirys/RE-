@@ -44,6 +44,7 @@ message MetricPayload {
   repeated DiskMetric disk = 5;
   repeated NetworkMetric network = 6;
   repeated DockerMetric docker = 7;
+  repeated DatabaseMetric database = 8;
 }
 
 message CpuMetric {
@@ -78,4 +79,25 @@ message DockerMetric {
 
 message StreamMetricsResponse {
   bool success = 1;
+}
+
+message DatabaseMetric {
+  string db_id = 1;         // User-defined ID for this DB
+  string db_type = 2;       // postgres, mssql, oracle
+  string host = 3;
+  int64 timestamp = 4;
+  
+  float tps = 5;            // Transactions per second
+  int32 active_sessions = 6;
+  int32 idle_sessions = 7;
+  int64 size_bytes = 8;
+  float cache_hit_ratio = 9;
+  
+  repeated TableMetric tables = 10;
+}
+
+message TableMetric {
+  string table_name = 1;
+  int64 size_bytes = 2;
+  int64 row_count = 3;
 }

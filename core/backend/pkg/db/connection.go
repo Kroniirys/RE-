@@ -15,7 +15,7 @@ func InitPool(cfg *config.Config) (*pgxpool.Pool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	poolConfig, err := pgxpool.ParseConfig(cfg.Database.URL)
+	poolConfig, err := pgxpool.ParseConfig(cfg.Database.GetURL())
 	if err != nil {
 		return nil, fmt.Errorf("unable to parse database URL: %w", err)
 	}

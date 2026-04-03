@@ -17,12 +17,13 @@ import (
 )
 
 type ScraperClient struct {
-	conn       *grpc.ClientConn
-	agent      agentv1.AgentServiceClient
-	collector  *collector.DockerCollector
-	cfg        *config.Config
-	token      string
-	cancelFunc context.CancelFunc
+	conn         *grpc.ClientConn
+	agent        agentv1.AgentServiceClient
+	collector    *collector.DockerCollector
+	dbCollectors []*collector.PostgresCollector
+	cfg          *config.Config
+	token        string
+	cancelFunc   context.CancelFunc
 }
 
 func NewScraperClient(cfg *config.Config, token string) (*ScraperClient, error) {
@@ -40,12 +41,26 @@ func NewScraperClient(cfg *config.Config, token string) (*ScraperClient, error) 
 		logger.Server.Info("Docker collector initialized successfully")
 	}
 
+	var dbCollectors []*collector.PostgresCollector
+	for _, dbCfg := range cfg.Scraper.RemoteDBs {
+		if dbCfg.DBType == "postgres" {
+			pc, err := collector.NewPostgresCollector(dbCfg)
+			if err != nil {
+				logger.Server.Warn("Failed to initialize Postgres collector", zap.String("id", dbCfg.ID), zap.Error(err))
+				continue
+			}
+			dbCollectors = append(dbCollectors, pc)
+			logger.Server.Info("Postgres collector initialized successfully", zap.String("id", dbCfg.ID))
+		}
+	}
+
 	return &ScraperClient{
-		conn:      conn,
-		agent:     agentv1.NewAgentServiceClient(conn),
-		collector: dc,
-		cfg:       cfg,
-		token:     token,
+		conn:         conn,
+		agent:        agentv1.NewAgentServiceClient(conn),
+		collector:    dc,
+		dbCollectors: dbCollectors,
+		cfg:          cfg,
+		token:        token,
 	}, nil
 }
 
@@ -108,6 +123,16 @@ func (s *ScraperClient) runStream(ctx context.Context) {
 				}
 			}
 
+			// Remote DB Metrics
+			for _, pc := range s.dbCollectors {
+				dbMetric, err := pc.GetMetrics(ctx)
+				if err != nil {
+					logger.Server.Warn("Scraper failed to get postgres metrics", zap.Error(err))
+					continue
+				}
+				payload.Database = append(payload.Database, dbMetric)
+			}
+
 			if err := stream.Send(payload); err != nil {
 				logger.Server.Error("Scraper failed to send stream payload", zap.Error(err))
 				return // Break and reconnect
@@ -122,5 +147,8 @@ func (s *ScraperClient) Stop() {
 	}
 	if s.conn != nil {
 		s.conn.Close()
+	}
+	for _, pc := range s.dbCollectors {
+		pc.Close()
 	}
 }

@@ -82,3 +82,165 @@
 2026-04-01T16:47:22.003+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036840}
 2026-04-01T16:47:27.934+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036845}
 2026-04-01T16:47:31.997+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775036850}
+2026-04-02T16:00:44.388+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-02T16:00:44.401+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-02T16:00:44.402+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-02T16:00:44.404+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-02T16:00:44.406+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-02T16:00:44.532+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-02T16:00:44.536+0700	INFO	handler/grpc_agent.go:42	StreamMetrics connection established
+2026-04-02T16:00:50.617+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120449}
+2026-04-02T16:00:55.582+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120454}
+2026-04-02T16:01:00.572+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120459}
+2026-04-02T16:01:05.591+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120464}
+2026-04-02T16:01:10.599+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120469}
+2026-04-02T16:01:15.581+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120474}
+2026-04-02T16:01:20.583+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120479}
+2026-04-02T16:01:22.628+0700	INFO	app/app.go:157	Shutting down server...
+2026-04-02T16:01:22.635+0700	INFO	app/app.go:167	Shutting down gRPC server...
+2026-04-02T16:01:25.699+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120484}
+2026-04-02T16:01:30.588+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120489}
+2026-04-02T16:01:35.581+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120494}
+2026-04-02T16:01:40.590+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120499}
+2026-04-02T16:01:45.628+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120504}
+2026-04-02T16:01:50.596+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120509}
+2026-04-02T16:01:55.602+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120514}
+2026-04-02T16:02:00.596+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120519}
+2026-04-02T16:02:05.596+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120524}
+2026-04-02T16:02:10.616+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120529}
+2026-04-02T16:02:15.591+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120534}
+2026-04-02T16:02:20.602+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120539}
+2026-04-02T16:02:25.607+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120544}
+2026-04-02T16:02:30.610+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120549}
+2026-04-02T16:02:35.637+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120554}
+2026-04-02T16:02:40.595+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120559}
+2026-04-02T16:02:45.622+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120564}
+2026-04-02T16:02:50.597+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120569}
+2026-04-02T16:02:55.599+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120574}
+2026-04-02T16:03:00.618+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120579}
+2026-04-02T16:03:05.629+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120584}
+2026-04-02T16:03:10.594+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120589}
+2026-04-02T16:03:15.603+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120594}
+2026-04-02T16:03:20.599+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120599}
+2026-04-02T16:03:25.610+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120604}
+2026-04-02T16:03:30.641+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120609}
+2026-04-02T16:03:35.622+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120614}
+2026-04-02T16:03:40.635+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120619}
+2026-04-02T16:03:45.606+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120624}
+2026-04-02T16:03:50.608+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120629}
+2026-04-02T16:03:55.625+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120634}
+2026-04-02T16:04:00.627+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120639}
+2026-04-02T16:04:05.616+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120644}
+2026-04-02T16:04:10.633+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120649}
+2026-04-02T16:04:15.644+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120654}
+2026-04-02T16:04:20.612+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120659}
+2026-04-02T16:04:42.880+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-02T16:04:42.883+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-02T16:04:42.884+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-02T16:04:42.884+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-02T16:04:42.885+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-02T16:04:42.903+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-02T16:04:42.904+0700	INFO	handler/grpc_agent.go:42	StreamMetrics connection established
+2026-04-02T16:04:48.963+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120687}
+2026-04-02T16:04:51.400+0700	INFO	app/app.go:157	Shutting down server...
+2026-04-02T16:04:51.400+0700	INFO	app/app.go:167	Shutting down gRPC server...
+2026-04-02T16:04:53.946+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775120692}
+2026-04-02T16:37:09.589+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: pq: database \"re\" does not exist"}
+2026-04-02T16:39:30.961+0700	FATAL	cmd/migrate.go:53	Could not create migrate instance	{"error": "failed to open database: dial tcp 127.0.0.1:5433: connectex: No connection could be made because the target machine actively refused it."}
+2026-04-02T16:42:18.798+0700	INFO	cmd/migrate.go:59	Running migrations up...
+2026-04-02T16:42:18.955+0700	INFO	cmd/migrate.go:74	Migrations applied successfully
+2026-04-02T16:47:27.102+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-02T16:47:27.105+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-02T16:47:27.106+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-02T16:47:27.106+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-02T16:47:27.106+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-02T16:47:27.120+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-02T16:47:27.122+0700	INFO	handler/grpc_agent.go:42	StreamMetrics connection established
+2026-04-02T16:47:33.169+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123252}
+2026-04-02T16:47:38.196+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123257}
+2026-04-02T16:47:43.168+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123262}
+2026-04-02T16:47:48.162+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123267}
+2026-04-02T16:47:53.169+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123272}
+2026-04-02T16:47:58.185+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123277}
+2026-04-02T16:48:03.284+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123282}
+2026-04-02T16:48:08.157+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123287}
+2026-04-02T16:48:13.169+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123292}
+2026-04-02T16:48:18.180+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123297}
+2026-04-02T16:48:23.205+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123302}
+2026-04-02T16:48:28.153+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123307}
+2026-04-02T16:48:33.166+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123312}
+2026-04-02T16:48:37.496+0700	INFO	app/app.go:157	Shutting down server...
+2026-04-02T16:48:37.501+0700	INFO	app/app.go:167	Shutting down gRPC server...
+2026-04-02T16:48:38.170+0700	DEBUG	handler/grpc_agent.go:50	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775123317}
+2026-04-03T16:38:43.087+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-03T16:38:43.354+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-03T16:38:43.364+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-03T16:38:43.364+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-03T16:38:43.397+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-03T16:38:43.461+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-03T16:38:43.462+0700	INFO	handler/grpc_agent.go:46	StreamMetrics connection established
+2026-04-03T16:38:48.463+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:38:48.467+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209128}
+2026-04-03T16:38:53.459+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:38:53.460+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209133}
+2026-04-03T16:38:58.458+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:38:58.460+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209138}
+2026-04-03T16:39:03.457+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:39:03.460+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209143}
+2026-04-03T16:39:08.454+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:39:08.456+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209148}
+2026-04-03T16:39:13.453+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:39:13.454+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209153}
+2026-04-03T16:39:15.203+0700	INFO	app/app.go:157	Shutting down server...
+2026-04-03T16:39:15.204+0700	INFO	app/app.go:167	Shutting down gRPC server...
+2026-04-03T16:39:18.451+0700	WARN	client/grpc.go:105	Scraper failed to get docker metrics	{"error": "list containers: error during connect: in the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect: Get \"http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.51/containers/json\": open //./pipe/docker_engine: The system cannot find the file specified."}
+2026-04-03T16:39:18.452+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209158}
+2026-04-03T16:42:06.904+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-03T16:42:06.907+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-03T16:42:06.908+0700	INFO	client/grpc.go:40	Docker collector initialized successfully
+2026-04-03T16:42:06.908+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-03T16:42:06.908+0700	INFO	client/grpc.go:53	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-03T16:42:07.095+0700	INFO	client/grpc.go:82	Scraper connected to gRPC Stream successfully
+2026-04-03T16:42:07.095+0700	INFO	handler/grpc_agent.go:46	StreamMetrics connection established
+2026-04-03T16:42:13.257+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209332}
+2026-04-03T16:42:18.134+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209337}
+2026-04-03T16:42:23.127+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209342}
+2026-04-03T16:42:28.132+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209347}
+2026-04-03T16:42:33.139+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209352}
+2026-04-03T16:42:38.126+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209357}
+2026-04-03T16:42:43.133+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209362}
+2026-04-03T16:42:48.122+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209367}
+2026-04-03T16:42:53.129+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209372}
+2026-04-03T16:42:58.114+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209377}
+2026-04-03T16:43:03.131+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209382}
+2026-04-03T16:43:08.150+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209387}
+2026-04-03T16:43:13.207+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209392}
+2026-04-03T16:43:18.171+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209397}
+2026-04-03T16:43:23.133+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209402}
+2026-04-03T16:43:28.133+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209407}
+2026-04-03T16:43:33.113+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209412}
+2026-04-03T16:43:38.115+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209417}
+2026-04-03T16:43:43.117+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209422}
+2026-04-03T16:43:48.113+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209427}
+2026-04-03T16:43:53.149+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209432}
+2026-04-03T16:43:55.292+0700	INFO	app/app.go:157	Shutting down server...
+2026-04-03T16:43:55.293+0700	INFO	app/app.go:167	Shutting down gRPC server...
+2026-04-03T16:43:58.137+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775209437}
+2026-04-03T17:14:59.485+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-03T17:14:59.607+0700	INFO	client/grpc.go:41	Docker collector initialized successfully
+2026-04-03T17:14:59.608+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-03T17:14:59.608+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-03T17:14:59.624+0700	INFO	client/grpc.go:57	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-03T17:14:59.685+0700	INFO	client/grpc.go:86	Scraper connected to gRPC Stream successfully
+2026-04-03T17:14:59.687+0700	INFO	handler/grpc_agent.go:46	StreamMetrics connection established
+2026-04-03T17:15:05.723+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775211304}
+2026-04-03T17:15:10.710+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775211309}
+2026-04-03T17:15:53.110+0700	INFO	db/connection.go:39	Database connection pool initialized successfully
+2026-04-03T17:15:53.197+0700	INFO	app/app.go:104	Server starting on :8080 in debug mode
+2026-04-03T17:15:53.198+0700	INFO	client/grpc.go:41	Docker collector initialized successfully
+2026-04-03T17:15:53.198+0700	INFO	app/app.go:127	gRPC Server starting on :50051 mode
+2026-04-03T17:15:53.222+0700	INFO	client/grpc.go:57	Starting Internal Scraper Client loop	{"interval_s": 5}
+2026-04-03T17:15:53.291+0700	INFO	client/grpc.go:86	Scraper connected to gRPC Stream successfully
+2026-04-03T17:15:53.291+0700	INFO	handler/grpc_agent.go:46	StreamMetrics connection established
+2026-04-03T17:16:00.745+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775211358}
+2026-04-03T17:16:05.334+0700	DEBUG	handler/grpc_agent.go:63	Received Metric Payload	{"asset_id": "internal-server-agent", "timestamp": 1775211363}

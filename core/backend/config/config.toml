@@ -5,8 +5,13 @@ port = 8080
 grpc_port = 50051
 mode = "debug" # debug, release
 
-[database]
-url = "postgres://re_user:re_password@127.0.0.1:5433/re_db?sslmode=disable"
+[DB]
+Host = "127.0.0.1"
+Port = 5432
+Database = "re"
+DBType = 1
+User = "postgres"
+Pass = "0865122003"
 max_open_conns = 25
 max_idle_conns = 25
 conn_max_lifetime = "5m"

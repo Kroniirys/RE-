@@ -2,6 +2,9 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
+	"os"
+	"sync"
 
 	"go.uber.org/zap"
 
@@ -11,6 +14,7 @@ import (
 
 type GrpcAgentHandler struct {
 	agentv1.UnimplementedAgentServiceServer
+	mu sync.Mutex // Mutex for debug file writing
 }
 
 func NewGrpcAgentHandler() *GrpcAgentHandler {
@@ -40,6 +44,15 @@ func (h *GrpcAgentHandler) Heartbeat(ctx context.Context, req *agentv1.Heartbeat
 
 func (h *GrpcAgentHandler) StreamMetrics(stream agentv1.AgentService_StreamMetricsServer) error {
 	logger.Server.Info("StreamMetrics connection established")
+
+	// Open or create debug file
+	f, err := os.OpenFile("scraped_data_debug.jsonl", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		logger.Server.Error("Failed to open debug log file", zap.Error(err))
+	} else {
+		defer f.Close()
+	}
+
 	for {
 		payload, err := stream.Recv()
 		if err != nil {
@@ -48,7 +61,15 @@ func (h *GrpcAgentHandler) StreamMetrics(stream agentv1.AgentService_StreamMetri
 		}
 
 		logger.Server.Debug("Received Metric Payload", zap.String("asset_id", payload.AssetId), zap.Int64("timestamp", payload.Timestamp))
-		
+
+		// Temporary debug logging to file
+		if f != nil {
+			h.mu.Lock()
+			data, _ := json.Marshal(payload)
+			f.Write(append(data, '\n'))
+			h.mu.Unlock()
+		}
+
 		// Batch insert logic using SQLC copyfrom will go here
 	}
 }

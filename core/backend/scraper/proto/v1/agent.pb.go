@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: proto/v1/agent.proto
+// source: v1/agent.proto
 
 package agentv1
 
@@ -32,7 +32,7 @@ type RegisterRequest struct {
 
 func (x *RegisterRequest) Reset() {
 	*x = RegisterRequest{}
-	mi := &file_proto_v1_agent_proto_msgTypes[0]
+	mi := &file_v1_agent_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *RegisterRequest) String() string {
 func (*RegisterRequest) ProtoMessage() {}
 
 func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[0]
+	mi := &file_v1_agent_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
 func (*RegisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{0}
+	return file_v1_agent_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *RegisterRequest) GetHostname() string {
@@ -91,7 +91,7 @@ type RegisterResponse struct {
 
 func (x *RegisterResponse) Reset() {
 	*x = RegisterResponse{}
-	mi := &file_proto_v1_agent_proto_msgTypes[1]
+	mi := &file_v1_agent_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +103,7 @@ func (x *RegisterResponse) String() string {
 func (*RegisterResponse) ProtoMessage() {}
 
 func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[1]
+	mi := &file_v1_agent_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +116,7 @@ func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterResponse.ProtoReflect.Descriptor instead.
 func (*RegisterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{1}
+	return file_v1_agent_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *RegisterResponse) GetAssetId() string {
@@ -143,7 +143,7 @@ type HeartbeatRequest struct {
 
 func (x *HeartbeatRequest) Reset() {
 	*x = HeartbeatRequest{}
-	mi := &file_proto_v1_agent_proto_msgTypes[2]
+	mi := &file_v1_agent_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -155,7 +155,7 @@ func (x *HeartbeatRequest) String() string {
 func (*HeartbeatRequest) ProtoMessage() {}
 
 func (x *HeartbeatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[2]
+	mi := &file_v1_agent_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -168,7 +168,7 @@ func (x *HeartbeatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HeartbeatRequest.ProtoReflect.Descriptor instead.
 func (*HeartbeatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{2}
+	return file_v1_agent_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *HeartbeatRequest) GetAssetId() string {
@@ -194,7 +194,7 @@ type HeartbeatResponse struct {
 
 func (x *HeartbeatResponse) Reset() {
 	*x = HeartbeatResponse{}
-	mi := &file_proto_v1_agent_proto_msgTypes[3]
+	mi := &file_v1_agent_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -206,7 +206,7 @@ func (x *HeartbeatResponse) String() string {
 func (*HeartbeatResponse) ProtoMessage() {}
 
 func (x *HeartbeatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[3]
+	mi := &file_v1_agent_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -219,7 +219,7 @@ func (x *HeartbeatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HeartbeatResponse.ProtoReflect.Descriptor instead.
 func (*HeartbeatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{3}
+	return file_v1_agent_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *HeartbeatResponse) GetAcknowledged() bool {
@@ -238,13 +238,14 @@ type MetricPayload struct {
 	Disk          []*DiskMetric          `protobuf:"bytes,5,rep,name=disk,proto3" json:"disk,omitempty"`
 	Network       []*NetworkMetric       `protobuf:"bytes,6,rep,name=network,proto3" json:"network,omitempty"`
 	Docker        []*DockerMetric        `protobuf:"bytes,7,rep,name=docker,proto3" json:"docker,omitempty"`
+	Database      []*DatabaseMetric      `protobuf:"bytes,8,rep,name=database,proto3" json:"database,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MetricPayload) Reset() {
 	*x = MetricPayload{}
-	mi := &file_proto_v1_agent_proto_msgTypes[4]
+	mi := &file_v1_agent_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +257,7 @@ func (x *MetricPayload) String() string {
 func (*MetricPayload) ProtoMessage() {}
 
 func (x *MetricPayload) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[4]
+	mi := &file_v1_agent_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +270,7 @@ func (x *MetricPayload) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetricPayload.ProtoReflect.Descriptor instead.
 func (*MetricPayload) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{4}
+	return file_v1_agent_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *MetricPayload) GetAssetId() string {
@@ -321,6 +322,13 @@ func (x *MetricPayload) GetDocker() []*DockerMetric {
 	return nil
 }
 
+func (x *MetricPayload) GetDatabase() []*DatabaseMetric {
+	if x != nil {
+		return x.Database
+	}
+	return nil
+}
+
 type CpuMetric struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UsagePercent  float32                `protobuf:"fixed32,1,opt,name=usage_percent,json=usagePercent,proto3" json:"usage_percent,omitempty"`
@@ -330,7 +338,7 @@ type CpuMetric struct {
 
 func (x *CpuMetric) Reset() {
 	*x = CpuMetric{}
-	mi := &file_proto_v1_agent_proto_msgTypes[5]
+	mi := &file_v1_agent_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -342,7 +350,7 @@ func (x *CpuMetric) String() string {
 func (*CpuMetric) ProtoMessage() {}
 
 func (x *CpuMetric) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[5]
+	mi := &file_v1_agent_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,7 +363,7 @@ func (x *CpuMetric) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CpuMetric.ProtoReflect.Descriptor instead.
 func (*CpuMetric) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{5}
+	return file_v1_agent_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CpuMetric) GetUsagePercent() float32 {
@@ -375,7 +383,7 @@ type RamMetric struct {
 
 func (x *RamMetric) Reset() {
 	*x = RamMetric{}
-	mi := &file_proto_v1_agent_proto_msgTypes[6]
+	mi := &file_v1_agent_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -387,7 +395,7 @@ func (x *RamMetric) String() string {
 func (*RamMetric) ProtoMessage() {}
 
 func (x *RamMetric) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[6]
+	mi := &file_v1_agent_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -400,7 +408,7 @@ func (x *RamMetric) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RamMetric.ProtoReflect.Descriptor instead.
 func (*RamMetric) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{6}
+	return file_v1_agent_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *RamMetric) GetUsedBytes() int64 {
@@ -428,7 +436,7 @@ type DiskMetric struct {
 
 func (x *DiskMetric) Reset() {
 	*x = DiskMetric{}
-	mi := &file_proto_v1_agent_proto_msgTypes[7]
+	mi := &file_v1_agent_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -440,7 +448,7 @@ func (x *DiskMetric) String() string {
 func (*DiskMetric) ProtoMessage() {}
 
 func (x *DiskMetric) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[7]
+	mi := &file_v1_agent_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -453,7 +461,7 @@ func (x *DiskMetric) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiskMetric.ProtoReflect.Descriptor instead.
 func (*DiskMetric) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{7}
+	return file_v1_agent_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DiskMetric) GetDevice() string {
@@ -488,7 +496,7 @@ type NetworkMetric struct {
 
 func (x *NetworkMetric) Reset() {
 	*x = NetworkMetric{}
-	mi := &file_proto_v1_agent_proto_msgTypes[8]
+	mi := &file_v1_agent_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -500,7 +508,7 @@ func (x *NetworkMetric) String() string {
 func (*NetworkMetric) ProtoMessage() {}
 
 func (x *NetworkMetric) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[8]
+	mi := &file_v1_agent_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -513,7 +521,7 @@ func (x *NetworkMetric) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NetworkMetric.ProtoReflect.Descriptor instead.
 func (*NetworkMetric) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{8}
+	return file_v1_agent_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *NetworkMetric) GetInterface() string {
@@ -551,7 +559,7 @@ type DockerMetric struct {
 
 func (x *DockerMetric) Reset() {
 	*x = DockerMetric{}
-	mi := &file_proto_v1_agent_proto_msgTypes[9]
+	mi := &file_v1_agent_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -563,7 +571,7 @@ func (x *DockerMetric) String() string {
 func (*DockerMetric) ProtoMessage() {}
 
 func (x *DockerMetric) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[9]
+	mi := &file_v1_agent_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -576,7 +584,7 @@ func (x *DockerMetric) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DockerMetric.ProtoReflect.Descriptor instead.
 func (*DockerMetric) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{9}
+	return file_v1_agent_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DockerMetric) GetDockerHashId() string {
@@ -630,7 +638,7 @@ type StreamMetricsResponse struct {
 
 func (x *StreamMetricsResponse) Reset() {
 	*x = StreamMetricsResponse{}
-	mi := &file_proto_v1_agent_proto_msgTypes[10]
+	mi := &file_v1_agent_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -642,7 +650,7 @@ func (x *StreamMetricsResponse) String() string {
 func (*StreamMetricsResponse) ProtoMessage() {}
 
 func (x *StreamMetricsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_v1_agent_proto_msgTypes[10]
+	mi := &file_v1_agent_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -655,7 +663,7 @@ func (x *StreamMetricsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StreamMetricsResponse.ProtoReflect.Descriptor instead.
 func (*StreamMetricsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_v1_agent_proto_rawDescGZIP(), []int{10}
+	return file_v1_agent_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *StreamMetricsResponse) GetSuccess() bool {
@@ -665,11 +673,187 @@ func (x *StreamMetricsResponse) GetSuccess() bool {
 	return false
 }
 
-var File_proto_v1_agent_proto protoreflect.FileDescriptor
+type DatabaseMetric struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	DbId           string                 `protobuf:"bytes,1,opt,name=db_id,json=dbId,proto3" json:"db_id,omitempty"`       // User-defined ID for this DB
+	DbType         string                 `protobuf:"bytes,2,opt,name=db_type,json=dbType,proto3" json:"db_type,omitempty"` // postgres, mssql, oracle
+	Host           string                 `protobuf:"bytes,3,opt,name=host,proto3" json:"host,omitempty"`
+	Timestamp      int64                  `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Tps            float32                `protobuf:"fixed32,5,opt,name=tps,proto3" json:"tps,omitempty"` // Transactions per second
+	ActiveSessions int32                  `protobuf:"varint,6,opt,name=active_sessions,json=activeSessions,proto3" json:"active_sessions,omitempty"`
+	IdleSessions   int32                  `protobuf:"varint,7,opt,name=idle_sessions,json=idleSessions,proto3" json:"idle_sessions,omitempty"`
+	SizeBytes      int64                  `protobuf:"varint,8,opt,name=size_bytes,json=sizeBytes,proto3" json:"size_bytes,omitempty"`
+	CacheHitRatio  float32                `protobuf:"fixed32,9,opt,name=cache_hit_ratio,json=cacheHitRatio,proto3" json:"cache_hit_ratio,omitempty"`
+	Tables         []*TableMetric         `protobuf:"bytes,10,rep,name=tables,proto3" json:"tables,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
 
-const file_proto_v1_agent_proto_rawDesc = "" +
+func (x *DatabaseMetric) Reset() {
+	*x = DatabaseMetric{}
+	mi := &file_v1_agent_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DatabaseMetric) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DatabaseMetric) ProtoMessage() {}
+
+func (x *DatabaseMetric) ProtoReflect() protoreflect.Message {
+	mi := &file_v1_agent_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DatabaseMetric.ProtoReflect.Descriptor instead.
+func (*DatabaseMetric) Descriptor() ([]byte, []int) {
+	return file_v1_agent_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *DatabaseMetric) GetDbId() string {
+	if x != nil {
+		return x.DbId
+	}
+	return ""
+}
+
+func (x *DatabaseMetric) GetDbType() string {
+	if x != nil {
+		return x.DbType
+	}
+	return ""
+}
+
+func (x *DatabaseMetric) GetHost() string {
+	if x != nil {
+		return x.Host
+	}
+	return ""
+}
+
+func (x *DatabaseMetric) GetTimestamp() int64 {
+	if x != nil {
+		return x.Timestamp
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetTps() float32 {
+	if x != nil {
+		return x.Tps
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetActiveSessions() int32 {
+	if x != nil {
+		return x.ActiveSessions
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetIdleSessions() int32 {
+	if x != nil {
+		return x.IdleSessions
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetSizeBytes() int64 {
+	if x != nil {
+		return x.SizeBytes
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetCacheHitRatio() float32 {
+	if x != nil {
+		return x.CacheHitRatio
+	}
+	return 0
+}
+
+func (x *DatabaseMetric) GetTables() []*TableMetric {
+	if x != nil {
+		return x.Tables
+	}
+	return nil
+}
+
+type TableMetric struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TableName     string                 `protobuf:"bytes,1,opt,name=table_name,json=tableName,proto3" json:"table_name,omitempty"`
+	SizeBytes     int64                  `protobuf:"varint,2,opt,name=size_bytes,json=sizeBytes,proto3" json:"size_bytes,omitempty"`
+	RowCount      int64                  `protobuf:"varint,3,opt,name=row_count,json=rowCount,proto3" json:"row_count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TableMetric) Reset() {
+	*x = TableMetric{}
+	mi := &file_v1_agent_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TableMetric) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TableMetric) ProtoMessage() {}
+
+func (x *TableMetric) ProtoReflect() protoreflect.Message {
+	mi := &file_v1_agent_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TableMetric.ProtoReflect.Descriptor instead.
+func (*TableMetric) Descriptor() ([]byte, []int) {
+	return file_v1_agent_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *TableMetric) GetTableName() string {
+	if x != nil {
+		return x.TableName
+	}
+	return ""
+}
+
+func (x *TableMetric) GetSizeBytes() int64 {
+	if x != nil {
+		return x.SizeBytes
+	}
+	return 0
+}
+
+func (x *TableMetric) GetRowCount() int64 {
+	if x != nil {
+		return x.RowCount
+	}
+	return 0
+}
+
+var File_v1_agent_proto protoreflect.FileDescriptor
+
+const file_v1_agent_proto_rawDesc = "" +
 	"\n" +
-	"\x14proto/v1/agent.proto\x12\bagent.v1\"\\\n" +
+	"\x0ev1/agent.proto\x12\bagent.v1\"\\\n" +
 	"\x0fRegisterRequest\x12\x1a\n" +
 	"\bhostname\x18\x01 \x01(\tR\bhostname\x12\x1d\n" +
 	"\n" +
@@ -682,7 +866,7 @@ const file_proto_v1_agent_proto_rawDesc = "" +
 	"\basset_id\x18\x01 \x01(\tR\aassetId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\"7\n" +
 	"\x11HeartbeatResponse\x12\"\n" +
-	"\facknowledged\x18\x01 \x01(\bR\facknowledged\"\xa3\x02\n" +
+	"\facknowledged\x18\x01 \x01(\bR\facknowledged\"\xd9\x02\n" +
 	"\rMetricPayload\x12\x19\n" +
 	"\basset_id\x18\x01 \x01(\tR\aassetId\x12\x1c\n" +
 	"\ttimestamp\x18\x02 \x01(\x03R\ttimestamp\x12%\n" +
@@ -690,7 +874,8 @@ const file_proto_v1_agent_proto_rawDesc = "" +
 	"\x03ram\x18\x04 \x03(\v2\x13.agent.v1.RamMetricR\x03ram\x12(\n" +
 	"\x04disk\x18\x05 \x03(\v2\x14.agent.v1.DiskMetricR\x04disk\x121\n" +
 	"\anetwork\x18\x06 \x03(\v2\x17.agent.v1.NetworkMetricR\anetwork\x12.\n" +
-	"\x06docker\x18\a \x03(\v2\x16.agent.v1.DockerMetricR\x06docker\"0\n" +
+	"\x06docker\x18\a \x03(\v2\x16.agent.v1.DockerMetricR\x06docker\x124\n" +
+	"\bdatabase\x18\b \x03(\v2\x18.agent.v1.DatabaseMetricR\bdatabase\"0\n" +
 	"\tCpuMetric\x12#\n" +
 	"\rusage_percent\x18\x01 \x01(\x02R\fusagePercent\"K\n" +
 	"\tRamMetric\x12\x1d\n" +
@@ -717,26 +902,45 @@ const file_proto_v1_agent_proto_rawDesc = "" +
 	"\x11cpu_usage_percent\x18\x05 \x01(\x02R\x0fcpuUsagePercent\x12$\n" +
 	"\x0eram_used_bytes\x18\x06 \x01(\x03R\framUsedBytes\"1\n" +
 	"\x15StreamMetricsResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\xe4\x01\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"\xc6\x02\n" +
+	"\x0eDatabaseMetric\x12\x13\n" +
+	"\x05db_id\x18\x01 \x01(\tR\x04dbId\x12\x17\n" +
+	"\adb_type\x18\x02 \x01(\tR\x06dbType\x12\x12\n" +
+	"\x04host\x18\x03 \x01(\tR\x04host\x12\x1c\n" +
+	"\ttimestamp\x18\x04 \x01(\x03R\ttimestamp\x12\x10\n" +
+	"\x03tps\x18\x05 \x01(\x02R\x03tps\x12'\n" +
+	"\x0factive_sessions\x18\x06 \x01(\x05R\x0eactiveSessions\x12#\n" +
+	"\ridle_sessions\x18\a \x01(\x05R\fidleSessions\x12\x1d\n" +
+	"\n" +
+	"size_bytes\x18\b \x01(\x03R\tsizeBytes\x12&\n" +
+	"\x0fcache_hit_ratio\x18\t \x01(\x02R\rcacheHitRatio\x12-\n" +
+	"\x06tables\x18\n" +
+	" \x03(\v2\x15.agent.v1.TableMetricR\x06tables\"h\n" +
+	"\vTableMetric\x12\x1d\n" +
+	"\n" +
+	"table_name\x18\x01 \x01(\tR\ttableName\x12\x1d\n" +
+	"\n" +
+	"size_bytes\x18\x02 \x01(\x03R\tsizeBytes\x12\x1b\n" +
+	"\trow_count\x18\x03 \x01(\x03R\browCount2\xe4\x01\n" +
 	"\fAgentService\x12A\n" +
 	"\bRegister\x12\x19.agent.v1.RegisterRequest\x1a\x1a.agent.v1.RegisterResponse\x12D\n" +
 	"\tHeartbeat\x12\x1a.agent.v1.HeartbeatRequest\x1a\x1b.agent.v1.HeartbeatResponse\x12K\n" +
 	"\rStreamMetrics\x12\x17.agent.v1.MetricPayload\x1a\x1f.agent.v1.StreamMetricsResponse(\x01B%Z#re-backend/scraper/proto/v1;agentv1b\x06proto3"
 
 var (
-	file_proto_v1_agent_proto_rawDescOnce sync.Once
-	file_proto_v1_agent_proto_rawDescData []byte
+	file_v1_agent_proto_rawDescOnce sync.Once
+	file_v1_agent_proto_rawDescData []byte
 )
 
-func file_proto_v1_agent_proto_rawDescGZIP() []byte {
-	file_proto_v1_agent_proto_rawDescOnce.Do(func() {
-		file_proto_v1_agent_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_v1_agent_proto_rawDesc), len(file_proto_v1_agent_proto_rawDesc)))
+func file_v1_agent_proto_rawDescGZIP() []byte {
+	file_v1_agent_proto_rawDescOnce.Do(func() {
+		file_v1_agent_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_v1_agent_proto_rawDesc), len(file_v1_agent_proto_rawDesc)))
 	})
-	return file_proto_v1_agent_proto_rawDescData
+	return file_v1_agent_proto_rawDescData
 }
 
-var file_proto_v1_agent_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_proto_v1_agent_proto_goTypes = []any{
+var file_v1_agent_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_v1_agent_proto_goTypes = []any{
 	(*RegisterRequest)(nil),       // 0: agent.v1.RegisterRequest
 	(*RegisterResponse)(nil),      // 1: agent.v1.RegisterResponse
 	(*HeartbeatRequest)(nil),      // 2: agent.v1.HeartbeatRequest
@@ -748,46 +952,50 @@ var file_proto_v1_agent_proto_goTypes = []any{
 	(*NetworkMetric)(nil),         // 8: agent.v1.NetworkMetric
 	(*DockerMetric)(nil),          // 9: agent.v1.DockerMetric
 	(*StreamMetricsResponse)(nil), // 10: agent.v1.StreamMetricsResponse
+	(*DatabaseMetric)(nil),        // 11: agent.v1.DatabaseMetric
+	(*TableMetric)(nil),           // 12: agent.v1.TableMetric
 }
-var file_proto_v1_agent_proto_depIdxs = []int32{
+var file_v1_agent_proto_depIdxs = []int32{
 	5,  // 0: agent.v1.MetricPayload.cpu:type_name -> agent.v1.CpuMetric
 	6,  // 1: agent.v1.MetricPayload.ram:type_name -> agent.v1.RamMetric
 	7,  // 2: agent.v1.MetricPayload.disk:type_name -> agent.v1.DiskMetric
 	8,  // 3: agent.v1.MetricPayload.network:type_name -> agent.v1.NetworkMetric
 	9,  // 4: agent.v1.MetricPayload.docker:type_name -> agent.v1.DockerMetric
-	0,  // 5: agent.v1.AgentService.Register:input_type -> agent.v1.RegisterRequest
-	2,  // 6: agent.v1.AgentService.Heartbeat:input_type -> agent.v1.HeartbeatRequest
-	4,  // 7: agent.v1.AgentService.StreamMetrics:input_type -> agent.v1.MetricPayload
-	1,  // 8: agent.v1.AgentService.Register:output_type -> agent.v1.RegisterResponse
-	3,  // 9: agent.v1.AgentService.Heartbeat:output_type -> agent.v1.HeartbeatResponse
-	10, // 10: agent.v1.AgentService.StreamMetrics:output_type -> agent.v1.StreamMetricsResponse
-	8,  // [8:11] is the sub-list for method output_type
-	5,  // [5:8] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	11, // 5: agent.v1.MetricPayload.database:type_name -> agent.v1.DatabaseMetric
+	12, // 6: agent.v1.DatabaseMetric.tables:type_name -> agent.v1.TableMetric
+	0,  // 7: agent.v1.AgentService.Register:input_type -> agent.v1.RegisterRequest
+	2,  // 8: agent.v1.AgentService.Heartbeat:input_type -> agent.v1.HeartbeatRequest
+	4,  // 9: agent.v1.AgentService.StreamMetrics:input_type -> agent.v1.MetricPayload
+	1,  // 10: agent.v1.AgentService.Register:output_type -> agent.v1.RegisterResponse
+	3,  // 11: agent.v1.AgentService.Heartbeat:output_type -> agent.v1.HeartbeatResponse
+	10, // 12: agent.v1.AgentService.StreamMetrics:output_type -> agent.v1.StreamMetricsResponse
+	10, // [10:13] is the sub-list for method output_type
+	7,  // [7:10] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
-func init() { file_proto_v1_agent_proto_init() }
-func file_proto_v1_agent_proto_init() {
-	if File_proto_v1_agent_proto != nil {
+func init() { file_v1_agent_proto_init() }
+func file_v1_agent_proto_init() {
+	if File_v1_agent_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_v1_agent_proto_rawDesc), len(file_proto_v1_agent_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_v1_agent_proto_rawDesc), len(file_v1_agent_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_v1_agent_proto_goTypes,
-		DependencyIndexes: file_proto_v1_agent_proto_depIdxs,
-		MessageInfos:      file_proto_v1_agent_proto_msgTypes,
+		GoTypes:           file_v1_agent_proto_goTypes,
+		DependencyIndexes: file_v1_agent_proto_depIdxs,
+		MessageInfos:      file_v1_agent_proto_msgTypes,
 	}.Build()
-	File_proto_v1_agent_proto = out.File
-	file_proto_v1_agent_proto_goTypes = nil
-	file_proto_v1_agent_proto_depIdxs = nil
+	File_v1_agent_proto = out.File
+	file_v1_agent_proto_goTypes = nil
+	file_v1_agent_proto_depIdxs = nil
 }

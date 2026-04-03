@@ -48,7 +48,7 @@ func runMigration(direction string) {
 
 	migrationsPath := "file://pkg/db/migrations"
 	
-	m, err := migrate.New(migrationsPath, cfg.Database.URL)
+	m, err := migrate.New(migrationsPath, cfg.Database.GetURL())
 	if err != nil {
 		logger.Server.Fatal("Could not create migrate instance", zap.Error(err))
 		return
